@@ -14,7 +14,6 @@ class PostController extends Controller {
     }
 
     public function store(Request $request) {
-
         $this->validate($request, [
             'body' => 'required|string|min:3|max:512',
             'title' => 'required|string|min:2|max:128'
@@ -35,5 +34,12 @@ class PostController extends Controller {
             'body' => $body
         ]);
         return response()->json($updated, 201);
+    }
+
+    public function deletePost(int $id) {
+
+        //$deleted = Post::destroy($id);
+        $deleted = Post::where('id',$id)->delete();
+        return response()->json(null, 204);
     }
 }

@@ -16,3 +16,6 @@ $router->get('/', 'PostController@showPost');
 $router->post('/','PostController@store');
 
 $router->put('/','PostController@update');
+
+$router->delete('/{id}','PostController@deletePost');
+
